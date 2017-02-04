@@ -9,10 +9,12 @@
 ##//start listening without specified port
 ##app.listen(port);
 ##console.log(`Server startd at http://localhost:${port}`);
-#With Standard responses (have not done Redirect yet):
+#With Standard responses (have not done Redirect/Render/Route etc. yet):
 ##app.use('/hello', (req, res, next) =>{
 ##      res.send("Hello...is it me you're looking for?")//res.send gives different html structure via Express
 ##  next();
 ##});
 #Most Importantly: Have a Procfile to specify as a web project run via Node to Heroku:
 ##Type: web: node server.js
+#**Install extra Node Modules into Project via command line:**
+##C:\Users\-\-\-\-\COMP308\COMP308-Lesson3>npm install morgan body-parser method-override compression cookie-parser session --save

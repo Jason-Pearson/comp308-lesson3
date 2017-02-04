@@ -27,6 +27,12 @@
   },
   "homepage": "https://github.com/Jason-Pearson/comp308-lesson3#readme",
   "dependencies": {
-    "express": "^4.14.1"
+    "body-parser": "^1.16.0",
+    "compression": "^1.6.2",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.14.1",
+    "method-override": "^2.3.7",
+    "morgan": "^1.7.0",
+    "session": "^0.1.0"
   }
 }
