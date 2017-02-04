@@ -29,3 +29,5 @@
 ####license: (ISC)
 ###***Change Scripts -> Start: "node server.js"***
 #npm install (again) - fetch modules from global folder (in Appdata/Roaming) to test this all out locally *(Ay, this looks nice lmao)*
+#**Need .bowerrc file as a config file for bower installation** *then* **bower init** on CL for bower.json setup
+##***Add*** **bower install jquery@2.2.4 --save** *and* **bower install bootstrap font-awesome --save**  via command line - imports JQuery/BootSrap/Font-Awesome into public/Scripts/lib folder
