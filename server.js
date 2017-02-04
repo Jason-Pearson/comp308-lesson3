@@ -1,7 +1,7 @@
-// our connect server - for git initial commit
-let connect = require('connect'); // imported third party module (Connect) into connect (object)
- //let app (object) be a Connect Server object
-let app = connect();
+// our express server - for git initial commit
+let express = require('express'); // imported third party module (express) into express (object)
+ //let app (object) be a express Server object
+let app = express();
 //assign port# as constant
 const port = 3000;
 
@@ -13,7 +13,7 @@ console.log(`Server listening at port: ${port}`); //need ` back quotes on tilde 
 
 // hello route - in proper order via mounting - '/(insert)' first before default '/'
 app.use('/hello', (req, res, next) =>{
-    res.setHeader('Content-Type', 'text/plain');
+  //don't need set header with express
     res.end("Hello FAM!")
   next();
 });
@@ -22,7 +22,6 @@ app.use('/hello', (req, res, next) =>{
 //app.use same as app.get
 // '/' main root for this website (webpage, can be hyerlinked?)
 app.use('/', (req, res, next) =>{
-    res.setHeader('Content-Type', 'text/plain');
     res.end("Welcome!")
   next();
 });

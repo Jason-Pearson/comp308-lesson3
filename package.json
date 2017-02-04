@@ -1,7 +1,7 @@
 {
-  "name": "comp308-lesson2",
+  "name": "comp308-lesson3",
   "version": "1.0.0",
-  "description": "Connect Server Demo",
+  "description": "Express Server Demo",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jason-Pearson/comp308-lesson2.git"
+    "url": "git+https://github.com/Jason-Pearson/comp308-lesson3.git"
   },
   "keywords": [
     "Connect",
@@ -19,10 +19,10 @@
   "author": "Jason Pearson",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Jason-Pearson/comp308-lesson2/issues"
+    "url": "https://github.com/Jason-Pearson/comp308-lesson3/issues"
   },
-  "homepage": "https://github.com/Jason-Pearson/comp308-lesson2#readme",
+  "homepage": "https://github.com/Jason-Pearson/comp308-lesson3#readme",
   "dependencies": {
-    "connect": "^3.5.0"
+    "express": "^4.14.1"
   }
 }
