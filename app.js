@@ -6,7 +6,7 @@ let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
 
-let index = require('./routes/index');
+let index = require('./routes/index'); //index (object) for routing to index.html
 
 let app = express();
 
