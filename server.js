@@ -1,38 +1,90 @@
-// our express server - for git initial commit
-let express = require('express'); // imported third party module (express) into express (object)
- //let app (object) be a express Server object
-let app = express();
-//assign port# as constant
-const localport = 3000;
+#!/usr/bin/env node
 
-let port = process.env.PORT || localport; //use either/or - specified port (localport=3000) or given from Environment Variable from Heroku to store in Express
-app.set('port', port) //set inherits server setting from parent, in this case the for port to a local variable (port)
+/**
+ * Module dependencies.
+ */
 
-//start listening without specified port
-app.listen(port);
-console.log(`Server startd at http://localhost:${port}`);
+var app = require('./app');
+var debug = require('debug')('comp308-lesson3:server');
+var http = require('http');
 
+/**
+ * Get port from environment and store in Express.
+ */
 
-//mounted two roots onto server
+var port = normalizePort(process.env.PORT || '3000');
+app.set('port', port);
 
-// hello route - in proper order via mounting - '/(insert)' first before default '/'
-//this is an event listener (for hello root - request, reponse, nextRequest) passed into a Callback Function (Event Handler) via Anonymous-Arrow Function
-//app.use - for mounting middleware functions such as this
-app.use('/hello', (req, res, next) =>{
-  //don't need set header with express
-    //res.redirect("index.html") //the Response for this Callback is a res.redirect to a new html page
-      res.send("Hello...is it me you're looking for?")//res.send gives different html structure via Express
-  next();
-});
+/**
+ * Create HTTP server.
+ */
 
-//anonymous Function with Arrow Function - indicate this root folder for the server to access - respond to the html page with "Welcome"
-//app.use(Connect) same as app.get(Express, needs Post function as well however)
-// '/' main root for this website (webpage, can be hyerlinked?)
-app.use('/', (req, res, next) =>{
-    res.send("Welcome!")//res.send gives different html structure via Express
-  
-  next();
-});
+var server = http.createServer(app);
 
-//takes this Express server file outside of the server
-module.exports = app; 
+/**
+ * Listen on provided port, on all network interfaces.
+ */
+
+server.listen(port);
+server.on('error', onError);
+server.on('listening', onListening);
+
+/**
+ * Normalize a port into a number, string, or false.
+ */
+
+function normalizePort(val) {
+  var port = parseInt(val, 10);
+
+  if (isNaN(port)) {
+    // named pipe
+    return val;
+  }
+
+  if (port >= 0) {
+    // port number
+    return port;
+  }
+
+  return false;
+}
+
+/**
+ * Event listener for HTTP server "error" event.
+ */
+
+function onError(error) {
+  if (error.syscall !== 'listen') {
+    throw error;
+  }
+
+  var bind = typeof port === 'string'
+    ? 'Pipe ' + port
+    : 'Port ' + port;
+
+  // handle specific listen errors with friendly messages
+  switch (error.code) {
+    case 'EACCES':
+      console.error(bind + ' requires elevated privileges');
+      process.exit(1);
+      break;
+    case 'EADDRINUSE':
+      console.error(bind + ' is already in use');
+      process.exit(1);
+      break;
+    default:
+      throw error;
+  }
+}
+
+/**
+ * Event listener for HTTP server "listening" event.
+ */
+
+function onListening() {
+  var addr = server.address();
+  var bind = typeof addr === 'string'
+    ? 'pipe ' + addr
+    : 'port ' + addr.port;
+  debug('Listening on ' + bind);
+}
