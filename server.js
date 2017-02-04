@@ -3,12 +3,15 @@ let express = require('express'); // imported third party module (express) into 
  //let app (object) be a express Server object
 let app = express();
 //assign port# as constant
-const port = 3000;
+const localport = 3000;
+
+let port = process.env.PORT || localport; //use either/or - specified port (localport=3000) or given from Environment Variable from Heroku to store in Express
+app.set('port', port) //set inherits server setting from parent, in this case the for port to a local variable (port)
 
 //start listening without specified port
-app.listen(() =>{
-  console.log(`Server startd...`);
-});
+app.listen(port);
+console.log(`Server startd at http://localhost:${port}`);
+
 
 //mounted two roots onto server
 
