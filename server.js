@@ -5,9 +5,10 @@ let app = express();
 //assign port# as constant
 const port = 3000;
 
-//setup event loop - listens on port 3000 w/console log statement upon executing listen command
-app.listen(port); //listen for port#/hostname - localhost:3000
-console.log(`Server listening at port: ${port}`); //need ` back quotes on tilde key ~ for passing variables into string
+//start listening without specified port
+app.listen(() =>{
+  console.log(`Server startd...`);
+});
 
 //mounted two roots onto server
 
